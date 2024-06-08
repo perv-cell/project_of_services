@@ -1,0 +1,83 @@
+<section>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-xxl">
+          <a class="navbar-brand" href={% url 'index' %}>
+            <symbol id="diamond" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gem" viewBox="0 0 16 16">
+              <path d="M3.1.7a.5.5 0 0 1 .4-.2h9a.5.5 0 0 1 .4.2l2.976 3.974c.149.185.156.45.01.644L8.4 15.3a.5.5 0 0 1-.8 0L.1 5.3a.5.5 0 0 1 0-.6zm11.386 3.785-1.806-2.41-.776 2.413zm-3.633.004.961-2.989H4.186l.963 2.995zM5.47 5.495 8 13.366l2.532-7.876zm-1.371-.999-.78-2.422-1.818 2.425zM1.499 5.5l5.113 6.817-2.192-6.82zm7.889 6.817 5.123-6.83-2.928.002z"/>
+            </svg>
+          </symbol></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if request.get_full_path == '/' %}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href={% url 'index' %}>Главная</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href={% url 'index' %}>Главная</a>
+              </li>
+              {% endif %}
+
+              {% if user.is_authenticated  %}
+              <span class="navbar-text me-2">{{ user }}</span>
+              <a href="{% url 'signout' %}" class="nav-link active">Выход</a>
+              {% else %}
+
+              {% if request.get_full_path == '/authorize/' %}
+                <a href="{% url 'auth' %}" class="nav-link active">Войти</a>
+                {% else %}
+                <a href="{% url 'auth' %}" class="nav-link ">Войти</a>
+              {% endif %}
+
+              {% if request.get_full_path == '/signup/' %}
+                <a href="{% url 'signup' %}" class="nav-link active">Регистрация</a>
+                {% else %}
+                <a href="{% url 'signup' %}" class="nav-link ">Регистрация</a>
+              {% endif %}
+
+            {% endif %}
+            {% if request.get_full_path == '/contact/' %}
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'contact' %}">Контакты</a>
+              </li>
+            {% else  %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Контакты</a>
+            </li>
+            {% endif %}
+            {% if request.get_full_path == '/search/' %}
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'search_results' %}">Поиск</a>
+              </li>
+            {% else  %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'search_results' %}">Поиск</a>
+            </li>
+            {% endif %}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Меню
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="post_details.html">Блоги</a></li>
+                  <li><a class="dropdown-item" href="#">Поддержка</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">По скидкам</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Отключить</a>
+              </li>
+            </ul>
+            <form action="{% url 'search_results' %}" method="get" class="d-flex" role="search">
+              <input name='q' class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Поиск</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+</section>

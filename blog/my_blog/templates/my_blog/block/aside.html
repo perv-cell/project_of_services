@@ -1,0 +1,24 @@
+<div class="col-md-4">
+    <div class="card my-4">
+        <h5 class="card-header">Теги</h5>
+        <div class="card-body">
+            <div class="d-flex flex-wrap">
+                {% for i in common_tag%}
+                <a href="{% url 'tag' i.slug %}" class="m-2 h5 text-primary">#{{i}}</a>
+                {% endfor%}
+            </div>
+        </div>
+    </div>
+    <div class="card my-4">
+        <h5 class="card-header">Последние статьи</h5>
+        {% for post in last_posts %}
+        <div class="card-body">
+            <h5 class="card-title">{{ post.h1 }}</h5>
+                    <img src="{{ post.img.url }}" alt="" class="card-img-top">
+                    {{ post.discription|safe|truncatechars:100 }}
+            <a href="{% url 'post' post.url %}"  class="card-link">Ссылка на статью</a>
+        <hr>
+        </div>
+        {% endfor %}
+    </div>
+</div>

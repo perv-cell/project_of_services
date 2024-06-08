@@ -1,0 +1,158 @@
+
+
+/*шрифты*/
+@font-face {
+    font-family: header_font_f;
+    src: url(../fonts/1926-font.otf);
+}
+@font-face {
+    font-family: raleway_f;
+    src: url(../fonts/Raleway-Black.woff2);
+}
+@font-face {
+    font-family: raleway_f;
+    src: url(../fonts/raleway-regular-webfont.woff2);
+}
+
+@font-face {
+    font-family: font933_f;
+    src: url(../fonts/933-font.ttf);
+}
+.carousel-item {
+    height: 28rem;
+    font-family: raleway_f;
+
+}
+.my-carousel{
+    font-size:xx-large;
+    font-weight:600;
+    font-family: my_font_f;
+    text-shadow: 0 0 100px rgb(254, 242, 5);
+}
+
+.carousel-caption {
+    color:rgb(123, 11, 242);
+}
+
+#first_slide{
+    background-image: url(../services/13.jpeg);
+    width: 100%;
+}
+.header{
+    background-color: rgb(204, 246, 246);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header_text{
+    text-shadow: 0 0 70px rgb(246, 209, 2);
+    font-family:header_font_f;
+}
+
+body {
+    width: 100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header_col_2 {
+    display: flex;
+    flex-direction: column;
+    font-family:raleway_f;
+    font-size:large;
+    width: 700px;
+    color:aquamarine;
+    justify-content: space-between;
+}
+.header_text_col_2 {
+    display: flex;
+    justify-content:center;
+}
+.text_col_2 {
+    display: flex;
+    text-align: center;
+}
+
+/*.header_col_2 {
+    display: flex;
+    flex-direction: column;
+    font-family:raleway_f;
+    font-size:large;
+    width: 700px;
+    color:rgb(254, 7, 151);
+    justify-content: space-between;
+    text-shadow: 0 0 50px rgb(217, 255, 26);
+    background-color: bisque;
+}*/
+
+.d-flex{
+    align-items: end;
+}
+
+
+:root{
+    --index: calc(1vw+1vh);
+}
+.note {
+    font-family:raleway_f;
+    font-size:large;
+    color:rgb(254, 7, 151);
+}
+.col {
+    size: var(--index);
+}
+
+#first_page {
+    max-width:1240px;
+    min-width:600px;
+    }
+
+#for_col_text{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: font933_f;
+    color:rgb(100, 100, 241);
+
+}
+.card-title{
+    background-color: rgb(191, 242, 219);
+}
+
+.row{
+    display: flex;
+    justify-content: space-around;
+}
+
+.my-footer{
+    font-family: raleway_f;
+    background-color: antiquewhite;
+}
+#slide_2{
+    background-image: url(../services/8165.jpg);
+}
+.signup{
+    display: flex;
+    justify-content: center;
+    font-family: header_font_f;
+    font-size:x-large;
+}
+#header_signup{
+    display: flex;
+    justify-content: center;
+    font-family: header_font_f;
+    color:rgb(100, 100, 241);
+    background-color: antiquewhite;
+    text-shadow: 0 0 25px goldenrod;
+    font-size:xx-large;
+}
+
+
+#discription{
+    background-color: aquamarine;
+}
+
+#content_for_user{
+    background-color: blanchedalmond;
+}

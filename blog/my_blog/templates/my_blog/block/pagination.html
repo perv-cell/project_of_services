@@ -1,0 +1,31 @@
+<section class="my-pagination mt-5" >
+    <nav aria-label="Paginate me">
+      <ul class="pagination justify-content-center">
+        {% if obj_pag.has_previous %}
+          <li class="page-item">
+              <a class="page-link" href="?page={{obj_pag.previous_page_number }}" tabindex="-1">Предыдущая</a>
+          </li>
+        {% else %}
+            <li class="page-item disable">
+                <a class="page-link" href="#" tabindex="-1">Предыдущая</a>
+            </li>
+        {% endif %}
+        {% for page_number in obj_pag.paginator.page_range %}
+            {% if page_number == obj_pag.number %}
+          <li class="page-item active"><a class="page-link" href="?page={{page_number}}">{{page_number}}</a></li>
+            {% else %}
+          <li class="page-item"><a class="page-link" href="?page={{page_number}}">{{page_number}}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if obj_pag.has_next %}
+          <li class="page-item">
+              <a class="page-link" href="?page={{obj_pag.next_page_number}}">Следующая</a>
+          </li>
+        {% else %}
+          <li class="page-item disable">
+            <a class="page-link" href="#">Следующая</a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </section>

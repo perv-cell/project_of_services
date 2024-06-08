@@ -1,0 +1,50 @@
+{% load static %}
+<section class="my-carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src='{% static 'services/seven.webp' %}' class="d-block w-100" alt="first image">
+          <div class="carousel-caption d-none d-md-block" id="main_courusel_images" >
+            <h3>Платить не нужно!</h3>
+            <p>Знакомся, проявляй свой опыт и получай что хочешь!</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src='{% static 'services/second.jpg' %}' class="d-block w-100 " alt="second image">
+          <div class="carousel-caption d-none d-md-block"  >
+            <h3>Здесь тебе помогут бескорыстно</h3>
+            <p>Сможешь получить в общении новые связи и расширить свой кругозор!</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src='{% static 'services/six.jpg' %}' class="d-block w-100" alt="third image">
+          <div class="carousel-caption d-none d-md-block" >
+            <h3>Прояви свой талант</h3>
+            <p>Чтобы он работал на тебя!</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+</section>
+<div id="first_slide">
+    <section>
+      <div class="header">
+        <div class="header_text">
+            <h1>Океaн возможностей</h1>
+        </div>
+      </div>
+    </section>
+</div>

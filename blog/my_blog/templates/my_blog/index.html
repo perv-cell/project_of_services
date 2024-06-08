@@ -1,0 +1,55 @@
+{% extends './base.html' %}
+{% load static %}
+
+{%block title%}Main page{%endblock%}
+
+
+{% block panel %}
+  {% include './block/panel.html' %}
+{% endblock %}
+
+{% block header %}
+
+    {% include './block/carousel.html' %}
+
+{% endblock %}
+
+{% block content %}
+  <!--карточки-->
+<section>
+  <div class="container-fluid">
+    <div class="container2">
+      <div class="row p-5">
+        {% for post in obj_pag %}
+        <div class="col-md-4">
+          <div class="card w-75 text-center">
+            <img src="media/{{ post.img }}" style="height: 200px" alt="" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title">{{post.h1}}</h4>
+              <div class="card-text">{{post.discription|safe|truncatechars:100}}</div>
+              {% for tag in post.tag.all %}
+                <a href="{% url 'tag' slug=tag %}" class="badge bg-info text-dark mb-2">#{{ tag }}</a>
+              {% endfor %}
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{% url 'post' slug=post.url %}" class="btn btn-sm btn-outline-secondary">откликнуться</a>
+                </div>
+                <small class="text-muted">{{ post.created_at }}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block pagination %}
+  {% include './block/pagination.html' %}
+{% endblock %}
+
+{% block footer %}
+  {% include './block/footer.html' %}
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends './base.html'%}
+
+{% load static %}
+
+{% block body %}
+
+{% block panel %}
+  {% include './block/panel.html' %}
+{% endblock %}
+
+{% block header %}
+    {% include './block/header.html' %}
+{% endblock %}
+
+{% block content %}
+<section class="my-post-detail">
+<div class="container">
+    <div class="row">
+        <!--    ЭТО ЛЕВАЯ КОЛОНКА КОНТЕНТА ПОСТА -->
+        <div class="col-lg-8">
+            <!--    ЭТО ХЛЕБНЫЕ КРОШКИ -->
+            <nav aria-label="breadcrumb" class="my-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href={% url 'index' %}>Главная</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Пост</li>
+                </ol>
+            </nav>
+            <!--    ЭТО ТЕЛО ПОСТА -->
+            <img class="img-fluid rounded " src='{{post.img.url}}' alt="">
+            <hr>
+            <!--    div добавил от себя, чтобы сделать background color по id -->
+            <div id="discription">
+                <p class="lead">{{post.discription}}</p>
+            </div>
+            <div id="content_for_user">
+                <p>{{ post.content|safe }}</p>
+            </div>
+            <!--   здесь закончил добавления  -->
+            <div class="d-flex justify-content-end">
+                {% for i in post.tag.all %}
+                <a href="{% url 'tag' slug=i %}" class="badge text-bg-info me-1">{{i}}</a>
+                {% endfor %}
+            </div>
+            <hr>
+            <div class="d-flex justify-content-between">
+                <div class="lead">{{post.author}}</div>
+                <div>{{post.creat}}</div>
+            </div>
+            <hr>
+        <!--    ЭТО КОМПОНЕНТ С КОММЕНТАРИЯМИ -->
+            {% include './block/comments.html' %}
+        </div>
+        <!--    ЭТО ПРАВАЯ КОЛОНКА -->
+            {% include './block/aside.html'%}
+    </div>
+</div>
+</section>
+{% endblock %}
+
+{% block footer %}
+  {% include './block/footer.html' %}
+{% endblock %}
+
+{% endblock %}
